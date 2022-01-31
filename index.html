@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="quarntine-cal-section quarntine-cal-section__center">
+        <div class="quarntine-cal-section__wrapper">
+            <header>
+                <h1>Isolation and Quarantine Calculator</h1>
+            </header>
+            <div class="quarntine-cal-section__content">
+                <div class="quarntine-cal-section__content quarntine-cal-section__description--c-white">
+                    <div class="quarntine-cal-section__text">
+                        <p>
+                            Use this calculator if you or someone you have come in contact with has tested positive for
+                            COVID-19.
+                            Select the option below that describes your situation, enter the date, and this calculator
+                            will give you
+                            guidance on when your self-isolation or quarantine may end.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="quarntine-cal-section" style="line-height: 1;">
+        <div class="quarntine-cal-section__wrapper__content">
+            <div class="quarntine-cal-section__text">
+                <fieldset>
+                    <legend>
+                        Did you test positive for COVID-19 or have you been in close contact with someone diagnosed with
+                        COVID-19?
+                    </legend>
+
+                    <div id="Choice">
+                        <div>
+                            <input type="radio" id="positiveChoice1" name="QuarantineCalculator" value="positive"
+                            onclick ="handleChange(this)"/>
+                            <label for="positiveChoice">I tested positive for COVID-19</label>
+                        </div>
+                        <div>       
+                        <input type="radio" id="positiveChoice2" name="QuarantineCalculator" value="closeContact"
+                        onclick ="handleChange(this)"/>
+                        <label for="positiveChoice2">I have been exposed to COVID-19 (close contact)</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div id="symptoms_yes_no">
+                    <fieldset>
+                        <legend>
+                            Do you have symptoms?
+                        </legend>
+
+                        <div id="symptoms_yes_no_choice">
+                            <input type="radio" id="yes" name="symptoms" value="yes"
+                            onclick="symptoms_yes_no_handleChange(this)">
+                            <label for="yes">Yes</label>
+
+                            <input type="radio" id="no" name="symptoms" value="no"
+                            onclick="symptoms_yes_no_handleChange(this)">
+                            <label for="no">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div id="symptoms_yes_selected">
+
+                    <p>Because you tested positive for COVID-19, stay home and isolate for 5 days from when your
+                        symptoms began.
+                        If your symptoms have gotten better after 5 days at home, you can leave your house if you
+                        continue to
+                        wear a mask for an additional 5 days.</p>
+                    <p>If you still have a fever or are not feeling that symptoms have gotten better after 5 days, you
+                        should
+                        continue to stay home a bit longer. </p>
+
+                    <p>You should stay home until:</p>
+                    <ul>
+                        <li>
+                            24 hours after your fever resolves and you are not using fever reducing medications (such as
+                            Tylenol
+                            or ibuprofen); and,
+                        </li>
+                        <li>
+                            symptoms have improved.
+                        </li>
+                    </ul>
+                    <p> Continue to wear a mask around others for the full 10 days after your symptoms started. If you
+                        cannot
+                        mask, continue to isolate at home for the 5 additional days.
+
+                    </p>
+
+                </div>
+
+                <div id="symptoms_no_selected">
+
+                    <p>
+                        Because you tested positive for COVID-19 and do not have symptoms, stay home and isolate for 5
+                        days from
+                        the day you had your test. After 5 days, you can leave your house if you continue to wear a mask
+                        around
+                        others for an additional 5 days.
+                    </p>
+                    <p>
+                        If you cannot mask, continue to isolate at home for the 5 additional days. (5 Days Home then 5
+                        Days
+                        Masking.)
+                    </p>
+
+                </div>
+
+
+
+
+                <!-- Second Flow -->
+
+                <div id="symptoms_closeContact">
+                    <fieldset>
+                        <legend>
+                            Which of the following applies to you?
+                        </legend>
+
+                        <div id="symptoms_closeContact_uptodate_Choice">
+                            <input type="radio" id="uptodatecheckid" name="uptodatecheck" value="uptoDate"
+                            onclick="symptoms_closeContact_handleChange(this)">
+                            <label for="uptodatecheckid">I AM UP TO DATE with my COVID-19 Vaccine:
+                                *Have been boosted, OR
+                                *Completed the primary series of Pfizer or Moderna vaccine within the last 5 months, OR
+                                *Completed the primary series of J&J vaccine within 2 months
+                            </label>
+                        </div>
+                        <div>
+
+                            <input type="radio" id="notuptodatecheckid" name="uptodatecheck" value="notUptoDate"
+                                onclick="symptoms_closeContact_handleChange(this)">
+                            <label for="notuptodatecheckid">I am NOT UP TO DATE with my COVID-19 Vaccine:
+                                *Completed the primary series of Pfizer or Moderna vaccine over 5 months ago and am NOT
+                                boosted,
+                                OR
+                                *Completed the primary series of J&J vaccine over 2 months ago and am not boosted, OR
+                                *Am not vaccinated</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div id="symptoms_closeContact_uptodate_selected">
+
+                    <p>
+                        Wear a mask around others for 10 days from your last exposure (day zero). You do not have to
+                        stay home.
+                        Test on day 5, if possible.
+                        If you develop symptoms get a test and stay home.
+
+                    </p>
+
+                </div>
+
+                <div id="symptoms_closeContact_notuptodate_selected">
+
+                    <p>
+
+                        Stay home for the first 5 days from your last exposure (day zero). After that, continue to wear
+                        a mask
+                        around others for an additional 5 days.
+                        If you cannot quarantine you must wear a mask for 10 days. Test on day 5 if possible. If you
+                        develop
+                        symptoms get a test and stay home.
+
+                    </p>
+
+                </div>
+
+                <div id="QuarantineCalculator_date">
+                    <div><span id="QuarantineCalculator_date_label"> </span>
+                        <input  type="date" name="quarantineDate" id="quarantineDate" max="9999-12-31" required pattern="\d{4}-\d{2}-\d{2}">
+                        <span class="validity"></span>
+                    </div>
+                </div>
+                <div id="quarantineDateResult"></div>
+            </div>
+        </div>
+    </section>
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>
